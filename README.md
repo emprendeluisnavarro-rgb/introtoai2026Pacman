@@ -1,4 +1,5 @@
 # Pacman AI Search Project
+Student: Luis Humberto Navarro Soto — Ascencia University, 2026
 
 Welcome to the **Pacman Search Project** for Ascencia University, by Professor Fajouri.
 
