@@ -63,14 +63,24 @@ class SearchProblem:
         """
         util.raiseNotDefined()
 
-
-
-
 def depthFirstSearch(problem: SearchProblem) -> List[Directions]:
     """Search the deepest nodes in the search tree first."""
+
+    # 1. Create the frontier: Stack or Queue? (you decide, and tell me why)
     frontier = util.Stack()
+
+    # 2. Create an empty set to keep track of visited states
     visited = set()
+
+    # 3. Push the start state into the frontier, together with an empty list of actions
     frontier.push((problem.getStartState(), []))
+
+    # 4. While the frontier is NOT empty:
+    #    a. Pop the next element (state, actions)
+    #    b. If that state is the goal -> return the actions
+    #    c. If it was already visited -> skip it
+    #    d. Mark it as visited
+    #    e. For each successor: if not visited, push it into the frontier
 
     while not frontier.isEmpty():
         state, actions = frontier.pop()
@@ -82,9 +92,14 @@ def depthFirstSearch(problem: SearchProblem) -> List[Directions]:
         for successor, action, _ in problem.getSuccessors(state):
             if successor not in visited:
                 frontier.push((successor, actions + [action]))
-
     return []
+          
 
+    #       with the accumulated actions + the new action
+
+    # 5. If the frontier runs out without finding the goal -> return an empty list
+
+    
 def breadthFirstSearch(problem: SearchProblem) -> List[Directions]:
     """Search the shallowest nodes in the search tree first."""
     frontier = util.Queue()
